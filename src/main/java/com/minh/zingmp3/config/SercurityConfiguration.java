@@ -29,13 +29,13 @@ public class SercurityConfiguration {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
          httpSecurity.csrf(csrf->csrf.disable());
-//         httpSecurity.authorizeHttpRequests(
-//                        auth-> auth.requestMatchers("/","/api/auth/register","/api/auth/authentication").permitAll().requestMatchers(HttpMethod.POST, "/api/v1/albums","/api/v1/artists","/api/v1/songs","api/v1/categories").hasAnyAuthority(Role.ADMIN.name())
-//                                .anyRequest().permitAll()
-//                ).sessionManagement(session->session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-//                .authenticationProvider(authenticationProvider).addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class)
-//                ;
-        httpSecurity.authorizeHttpRequests(auth->auth.anyRequest().permitAll());
+         httpSecurity.authorizeHttpRequests(
+                        auth-> auth.requestMatchers("/","/api/auth/register","/api/auth/authentication").permitAll().requestMatchers(HttpMethod.POST, "/api/v1/albums","/api/v1/artists","/api/v1/songs","api/v1/categories").hasAnyAuthority(Role.ADMIN.name())
+                                .anyRequest().permitAll()
+                ).sessionManagement(session->session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+                .authenticationProvider(authenticationProvider).addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class)
+                ;
+
          return httpSecurity.build();
     }
 }
