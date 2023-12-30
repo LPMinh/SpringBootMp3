@@ -51,17 +51,17 @@ public class Zingmp3Application {
         return new Cloudinary(config);
     }
 
-//    @Bean
-//    public CommandLineRunner initData() {
-//        return args -> {
-////            RegisterRequest registerRequest = new RegisterRequest("admin","adminh@gmail.com","123456","admin","ADMIN");
-////
-////            authService.register(registerRequest);
-////            RegisterRequest registerRequest1 = new RegisterRequest("user","user@gmail.com","123456","user","USER");
-////            authService.register(registerRequest1);
-//
-//        };
-//    }
+    @Bean
+    public CommandLineRunner initData() {
+        return args -> {
+            RegisterRequest registerRequest = new RegisterRequest("admin","adminh@gmail.com","123456","admin","ADMIN");
+
+            authService.register(registerRequest);
+            RegisterRequest registerRequest1 = new RegisterRequest("user","user@gmail.com","123456","user","USER");
+            authService.register(registerRequest1);
+
+        };
+    }
 }
 
 
