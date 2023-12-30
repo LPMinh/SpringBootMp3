@@ -24,6 +24,6 @@ public class RegisterRequest {
     private String name;
 
     private String role;
-    private MultipartFile avatar;
+
 
 }

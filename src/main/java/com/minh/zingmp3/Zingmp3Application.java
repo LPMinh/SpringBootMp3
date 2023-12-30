@@ -54,11 +54,11 @@ public class Zingmp3Application {
     @Bean
     public CommandLineRunner initData() {
         return args -> {
-//            RegisterRequest registerRequest = new RegisterRequest("admin","adminh@gmail.com","123456","admin","ADMIN");
-//
-//            authService.register(registerRequest);
-//            RegisterRequest registerRequest1 = new RegisterRequest("user","user@gmail.com","123456","user","USER");
-//            authService.register(registerRequest1);
+            RegisterRequest registerRequest = new RegisterRequest("admin","adminh@gmail.com","123456","admin","ADMIN");
+
+            authService.register(registerRequest);
+            RegisterRequest registerRequest1 = new RegisterRequest("user","user@gmail.com","123456","user","USER");
+            authService.register(registerRequest1);
 
         };
     }
