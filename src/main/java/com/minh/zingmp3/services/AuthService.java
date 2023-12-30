@@ -30,7 +30,7 @@ public class AuthService {
     private final  FileUpload fileUpload;
 
     public AuthenticationResponse register(RegisterRequest request) {
-        User user= new User(request.getUseName(),request.getEmail(),passwordEncoder.encode(request.getPassword()),request.getName(), Role.valueOf(request.getRole()),new ArrayList<>());
+        User user= new User(request.getUseName(),request.getEmail(),passwordEncoder.encode(request.getPassword()),request.getName(), Role.valueOf(request.getRole()),new ArrayList<>(),request.getAvatar());
         userRepository.save(user);
         String jsonToken=jwtService.grenerateToken(user);
         return AuthenticationResponse.builder().token(jsonToken).build();

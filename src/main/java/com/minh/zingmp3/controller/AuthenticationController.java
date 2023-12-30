@@ -20,7 +20,14 @@ public class AuthenticationController {
     private final AuthService authService;
     private final UserService userService;
 
-   
+    @GetMapping("/users")
+    public List<User> getAllUser(){
+        return userService.findAllUser();
+    }
+    @DeleteMapping("/users/{id}")
+    public void deleteUser(@PathVariable long id){
+        userService.deleteUser(id);
+    }
     @PostMapping("/register")
     public ResponseEntity<AuthenticationResponse> register(
             @RequestBody RegisterRequest request){

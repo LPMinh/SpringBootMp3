@@ -24,6 +24,7 @@ public class RegisterRequest {
     private String name;
 
     private String role;
+    private String avatar;
 
 
 }

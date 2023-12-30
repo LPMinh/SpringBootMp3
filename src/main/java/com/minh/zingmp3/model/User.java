@@ -70,12 +70,13 @@ public class User  implements Serializable, UserDetails {
         return true;
     }
 
-    public User(String useName, String email, String password, String name, Role role, List<PlayList> playLists) {
+    public User(String useName, String email, String password, String name, Role role, List<PlayList> playLists,String img) {
         this.useName = useName;
         this.email = email;
         this.password = password;
         this.name = name;
         this.role = role;
         this.playLists = playLists;
+        this.avatar=img;
     }
 }
