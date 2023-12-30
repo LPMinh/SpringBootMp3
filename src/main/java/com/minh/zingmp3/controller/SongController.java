@@ -20,7 +20,7 @@ import java.util.stream.IntStream;
 
 @RestController
 @RequestMapping("/api/v1/songs")
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "https://musiclpm-e440eeb9818d.herokuapp.com")
 public class SongController {
     @Autowired
     private SongService songService;

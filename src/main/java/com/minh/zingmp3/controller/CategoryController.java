@@ -10,7 +10,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/v1/categories")
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "https://musiclpm-e440eeb9818d.herokuapp.com")
 public class CategoryController {
     @Autowired
 

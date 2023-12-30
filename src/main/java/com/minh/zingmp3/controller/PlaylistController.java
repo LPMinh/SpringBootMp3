@@ -9,7 +9,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/playlists")
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "https://musiclpm-e440eeb9818d.herokuapp.com")
 public class PlaylistController {
     @Autowired
     private  com.minh.zingmp3.services.PlayListService playlistService;

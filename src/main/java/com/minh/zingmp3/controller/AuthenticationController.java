@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/auth")
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "https://musiclpm-e440eeb9818d.herokuapp.com")
 @RequiredArgsConstructor
 public class AuthenticationController {
     private final AuthService authService;

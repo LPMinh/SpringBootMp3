@@ -16,7 +16,7 @@ import java.util.logging.Logger;
 
 @RestController
 @RequestMapping("/api/v1/artists")
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "https://musiclpm-e440eeb9818d.herokuapp.com")
 public class ArtistController {
     @Autowired
     private ArtistService artistService;
