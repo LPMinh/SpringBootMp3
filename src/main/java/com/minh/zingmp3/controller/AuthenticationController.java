@@ -9,6 +9,7 @@ import com.minh.zingmp3.services.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.util.List;
@@ -31,8 +32,10 @@ public class AuthenticationController {
     }
     @PostMapping("/register")
     public ResponseEntity<?> register(
-            @RequestBody RegisterRequest request) throws IOException {
-        User user = userService.findByEmail(request.getEmail());
+            @RequestParam String email, @RequestParam String password, @RequestParam String name, @RequestParam String role, @RequestParam MultipartFile avatar) throws IOException {
+        User user = userService.findByEmail(email);
+        RegisterRequest request = new RegisterRequest(email,password,name,role,avatar);
+
         if(user!=null){
             return ResponseEntity.badRequest().body("Email is exist");
         }
