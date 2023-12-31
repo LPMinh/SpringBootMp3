@@ -10,6 +10,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
 import java.util.List;
 
 @RestController
@@ -29,8 +30,12 @@ public class AuthenticationController {
         userService.deleteUser(id);
     }
     @PostMapping("/register")
-    public ResponseEntity<AuthenticationResponse> register(
-            @RequestBody RegisterRequest request){
+    public ResponseEntity<?> register(
+            @RequestBody RegisterRequest request) throws IOException {
+        User user = userService.findByEmail(request.getEmail());
+        if(user!=null){
+            return ResponseEntity.badRequest().body("Email is exist");
+        }
         return ResponseEntity.ok(authService.register(request));
     }
     @PostMapping("/authentication")

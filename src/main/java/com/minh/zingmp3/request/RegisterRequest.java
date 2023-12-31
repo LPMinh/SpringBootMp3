@@ -15,7 +15,7 @@ import org.springframework.web.multipart.MultipartFile;
 @AllArgsConstructor
 @NoArgsConstructor
 public class RegisterRequest {
-    private String useName;
+
 
     private String email;
 
@@ -24,7 +24,7 @@ public class RegisterRequest {
     private String name;
 
     private String role;
-    private String avatar;
+    private MultipartFile avatar;
 
 
 }

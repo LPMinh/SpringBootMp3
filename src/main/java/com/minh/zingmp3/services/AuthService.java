@@ -14,6 +14,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 @Service
@@ -24,13 +25,15 @@ public class AuthService {
     private final PasswordEncoder passwordEncoder;
 
     private final AuthenticationManager authenticationManager;
+    private final UserService userService;
 
     private final  JWTService jwtService;
 
     private final  FileUpload fileUpload;
 
-    public AuthenticationResponse register(RegisterRequest request) {
-        User user= new User(request.getUseName(),request.getEmail(),passwordEncoder.encode(request.getPassword()),request.getName(), Role.valueOf(request.getRole()),new ArrayList<>(),request.getAvatar());
+    public AuthenticationResponse register(RegisterRequest request) throws IOException {
+        String avatar=fileUpload.uploadFile(request.getAvatar());
+        User user= new User(request.getEmail(),passwordEncoder.encode(request.getPassword()),request.getName(), Role.valueOf(request.getRole()),new ArrayList<>(),avatar);
         userRepository.save(user);
         String jsonToken=jwtService.grenerateToken(user);
         return AuthenticationResponse.builder().token(jsonToken).build();
