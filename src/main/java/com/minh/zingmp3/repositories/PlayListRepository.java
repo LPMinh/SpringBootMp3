@@ -7,4 +7,5 @@ import java.util.List;
 
 public interface PlayListRepository extends JpaRepository<PlayList, Long> {
     public List<PlayList> getPlayListsByUserId(long id);
+    public List<PlayList> findTopByPlayListNameContainingIgnoreCase(String name, int limit);
 }
