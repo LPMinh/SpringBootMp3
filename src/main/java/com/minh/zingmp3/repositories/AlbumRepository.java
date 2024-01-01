@@ -9,7 +9,8 @@ import java.util.List;
 
 public interface AlbumRepository extends JpaRepository<Album, Long> {
     List<Album> findAllByArtistId(long id);
-    List<Album> findTopByAlbumByName(String name, int limit);
+    @Query("select a from Album a where a.name like %?1% ")
+    List<Album> findTopByAlbumByName(String name, @Param("limit") int limit);
     Album findAlbumById(long id);
 
 
