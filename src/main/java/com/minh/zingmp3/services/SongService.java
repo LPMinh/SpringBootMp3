@@ -67,5 +67,7 @@ public class SongService {
     }
 
 
-
+    public List<Song> search(String keyword) {
+        return songRepository.findTopByNameContainingIgnoreCase(keyword, 10);
+    }
 }

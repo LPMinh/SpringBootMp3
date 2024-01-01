@@ -49,4 +49,8 @@ public class AlbumService {
     public List<Album> getListAlbumByArtistId(long id){
         return albumRepository.findAllByArtistId(id);
     }
+
+    public List<Album> search(String keyword) {
+        return albumRepository.findTopByAlbumByName(keyword, 10);
+    }
 }

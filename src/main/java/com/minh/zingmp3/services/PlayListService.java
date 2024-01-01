@@ -58,4 +58,8 @@ public class PlayListService {
     public Optional<PlayList> findPlayListById(long idPlayList) {
         return playListRepository.findById(idPlayList);
     }
+
+    public List<PlayList> search(String keyword) {
+        return playListRepository.findTopByPlayListNameContainingIgnoreCase(keyword, 10);
+    }
 }
