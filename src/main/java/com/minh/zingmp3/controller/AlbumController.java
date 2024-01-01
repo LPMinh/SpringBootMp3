@@ -13,7 +13,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/v1/albums")
-@CrossOrigin(origins = "https://musiclpm-e440eeb9818d.herokuapp.com")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class AlbumController {
     @Autowired
     private AlbumService albumService;
