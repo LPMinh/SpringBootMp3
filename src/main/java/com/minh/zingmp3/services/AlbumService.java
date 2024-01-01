@@ -36,7 +36,7 @@ public class AlbumService {
        }
          return false;
     }
-    @Cacheable(value = "albumbyid", key = "#id")
+//    @Cacheable(value = "albumbyid", key = "#id")
     public Album findAlbumById(Long id){
         return albumRepository.findById(id).orElse(null);
     }
@@ -52,7 +52,7 @@ public class AlbumService {
     public List<Album> getListAlbumByArtistId(long id){
         return albumRepository.findAllByArtistId(id);
     }
-    @Cacheable(value = "albumbyname", key = "#name")
+//    @Cacheable(value = "albumbyname", key = "#name")
     public List<Album> search(String keyword) {
         return albumRepository.findTopByAlbumByName(keyword, 10);
     }

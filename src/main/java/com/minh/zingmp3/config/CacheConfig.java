@@ -7,12 +7,12 @@ import org.springframework.data.redis.cache.RedisCacheManager;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
 
 public class CacheConfig {
-    @Bean
-    public CacheManager cacheManager(RedisConnectionFactory connectionFactory) {
-        RedisCacheConfiguration cacheConfiguration = RedisCacheConfiguration.defaultCacheConfig();
-
-        return RedisCacheManager.builder(connectionFactory)
-                .cacheDefaults(cacheConfiguration)
-                .build();
-    }
+//    @Bean
+//    public CacheManager cacheManager(RedisConnectionFactory connectionFactory) {
+//        RedisCacheConfiguration cacheConfiguration = RedisCacheConfiguration.defaultCacheConfig();
+//
+//        return RedisCacheManager.builder(connectionFactory)
+//                .cacheDefaults(cacheConfiguration)
+//                .build();
+//    }
 }

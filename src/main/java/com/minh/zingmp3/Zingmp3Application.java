@@ -23,7 +23,7 @@ import java.util.HashSet;
 import java.util.Map;
 
 @SpringBootApplication
-@EnableCaching
+//@EnableCaching
 public class Zingmp3Application {
     private final String CLOUD_NAME = "dbxogj6oe";
     private final String API_KEY = "967651379553858";
