@@ -4,6 +4,7 @@ import com.minh.zingmp3.model.Album;
 import com.minh.zingmp3.model.Artist;
 import com.minh.zingmp3.repositories.AlbumRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -35,21 +36,23 @@ public class AlbumService {
        }
          return false;
     }
-
+    @Cacheable(value = "albumbyid", key = "#id")
     public Album findAlbumById(Long id){
         return albumRepository.findById(id).orElse(null);
     }
+    @Cacheable(value = "allalbum", key = "#root.method.name")
     public List<Album> findAllAlbum(){
         return albumRepository.findAll();
     }
-
+    @Cacheable(value = "topalbumnew", key = "#root.method.name")
     public List<Album> getTopAlbumNew(int limit){
         return albumRepository.findTopAllAlbums(limit);
     }
+    @Cacheable(value = "albumbyartistid", key = "#id")
     public List<Album> getListAlbumByArtistId(long id){
         return albumRepository.findAllByArtistId(id);
     }
-
+    @Cacheable(value = "albumbyname", key = "#name")
     public List<Album> search(String keyword) {
         return albumRepository.findTopByAlbumByName(keyword, 10);
     }

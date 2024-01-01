@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Bean;
 
 import java.time.LocalDate;
@@ -22,6 +23,7 @@ import java.util.HashSet;
 import java.util.Map;
 
 @SpringBootApplication
+@EnableCaching
 public class Zingmp3Application {
     private final String CLOUD_NAME = "dbxogj6oe";
     private final String API_KEY = "967651379553858";
