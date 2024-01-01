@@ -40,15 +40,15 @@ public class AlbumService {
     public Album findAlbumById(Long id){
         return albumRepository.findById(id).orElse(null);
     }
-    @Cacheable(value = "allalbum", key = "#root.method.name")
+//    @Cacheable(value = "allalbum", key = "#root.method.name")
     public List<Album> findAllAlbum(){
         return albumRepository.findAll();
     }
-    @Cacheable(value = "topalbumnew", key = "#root.method.name")
+//    @Cacheable(value = "topalbumnew", key = "#root.method.name")
     public List<Album> getTopAlbumNew(int limit){
         return albumRepository.findTopAllAlbums(limit);
     }
-    @Cacheable(value = "albumbyartistid", key = "#id")
+//    @Cacheable(value = "albumbyartistid", key = "#id")
     public List<Album> getListAlbumByArtistId(long id){
         return albumRepository.findAllByArtistId(id);
     }
