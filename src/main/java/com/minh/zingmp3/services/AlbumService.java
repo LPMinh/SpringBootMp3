@@ -56,4 +56,11 @@ public class AlbumService {
     public List<Album> search(String keyword) {
         return albumRepository.findTopByAlbumByName(keyword, 10);
     }
+    //delete
+    public boolean deleteAlbum(long id){
+        Album album = albumRepository.findById(id).orElse(null);
+        if(album==null) return false;
+        albumRepository.delete(album);
+        return true;
+    }
 }

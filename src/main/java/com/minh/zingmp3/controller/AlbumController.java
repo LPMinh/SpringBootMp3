@@ -36,6 +36,10 @@ public class AlbumController {
     private Optional<?> findAlbumById(@PathVariable Long id){
         return Optional.ofNullable(albumService.findAlbumById(id));
     }
+    @DeleteMapping("/{id}")
+    private void deleteAlbum(@PathVariable Long id){
+        albumService.deleteAlbum(id);
+    }
     @GetMapping
     private Optional<?> findAllAlbum(){
         return Optional.ofNullable(albumService.findAllAlbum());
