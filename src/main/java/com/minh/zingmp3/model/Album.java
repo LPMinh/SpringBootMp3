@@ -21,12 +21,13 @@ public class Album  implements Serializable {
     private String name;
     @Column
     private String img;
-    @ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    @ManyToOne(cascade = CascadeType.MERGE,fetch = FetchType.EAGER)
     @JoinColumn(name = "id_artist")
     private Artist artist;
     @Column
     private LocalDate releaseDate;
-    @OneToMany(mappedBy = "album",cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "album",cascade = CascadeType.REMOVE,fetch = FetchType.EAGER)
+
     private Set<Song> songs=new HashSet<>();
 
 

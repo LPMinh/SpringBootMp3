@@ -56,7 +56,7 @@ public class Zingmp3Application {
     @Bean
     public CommandLineRunner initData() {
         return args -> {
-//            RegisterRequest registerRequest = new RegisterRequest("admin","adminh@gmail.com","123456","admin","ADMIN","https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9jvCXelhOqokaAXbRDLoJ4aX2SAoT7S-mfw&usqp=CAU");
+//            RegisterRequest registerRequest = new RegisterRequest("admin@gmail.com",)
 //
 //            authService.register(registerRequest);
 //            RegisterRequest registerRequest1 = new RegisterRequest("user","user@gmail.com","123456","user","USER","https://nemliena.com.vn/wp-content/uploads/2023/08/Chu-Meo-Tang-Hoa-Dep.jpg");
