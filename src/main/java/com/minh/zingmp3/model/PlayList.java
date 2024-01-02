@@ -31,11 +31,11 @@ public class PlayList implements Serializable {
     @Column
     private LocalDate date;
     @JsonIgnore
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "id_user")
     private User user;
     @JsonIgnore
-    @OneToMany(mappedBy = "playlist",cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "playlist",cascade = CascadeType.REMOVE)
     private List<CategoryPlaylist> categoryPlaylists=new ArrayList<>();
 
     @JsonProperty("songs")
