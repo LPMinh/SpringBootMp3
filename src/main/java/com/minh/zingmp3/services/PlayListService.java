@@ -62,4 +62,11 @@ public class PlayListService {
     public List<PlayList> search(String keyword) {
         return playListRepository.findTopByPlayListNameContainingIgnoreCase(keyword, 10);
     }
+    //delete
+    public boolean deletePlayList(long id){
+        PlayList playList = playListRepository.findById(id).orElse(null);
+        if(playList==null) return false;
+        playListRepository.delete(playList);
+        return true;
+    }
 }

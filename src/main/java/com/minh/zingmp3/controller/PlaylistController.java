@@ -35,6 +35,10 @@ public class PlaylistController {
     public void addSongToPlayList(@RequestBody com.minh.zingmp3.request.RequestAddSongToPlayList requestAddSongToPlayList){
         playlistService.addSongToPlayList(requestAddSongToPlayList);
     }
+    @DeleteMapping("/{id}")
+    public void deletePlayList(@PathVariable long id){
+        playlistService.deletePlayList(id);
+    }
 
 
 
