@@ -4,6 +4,7 @@ import com.minh.zingmp3.model.Album;
 import com.minh.zingmp3.services.AlbumService;
 import com.minh.zingmp3.services.FileUpload;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -48,4 +49,9 @@ public class AlbumController {
     private Optional<?> getListAlbumByArtistId(@PathVariable Long id){
         return Optional.ofNullable(albumService.getListAlbumByArtistId(id));
     }
+    @GetMapping("/artist/{id}/new")
+    private ResponseEntity<?> getTopAlbumNew(@PathVariable("id") long id){
+        return ResponseEntity.ok(albumService.getAlbumNewestByArtistId(id));
+    }
+
 }

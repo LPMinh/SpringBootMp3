@@ -5,6 +5,7 @@ import com.minh.zingmp3.model.Artist;
 import com.minh.zingmp3.services.ArtistService;
 import com.minh.zingmp3.services.FileUpload;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -26,6 +27,10 @@ public class ArtistController {
 
     private org.slf4j.Logger logger= org.slf4j.LoggerFactory.getLogger(ArtistController.class);
 
+    @GetMapping("/top")
+    public ResponseEntity<?> getTopArtist(){
+        return ResponseEntity.ok(artistService.getTopArtist(4));
+    }
 
     @PostMapping
     private Optional<?> addArtist(@RequestParam String name, @RequestParam MultipartFile avatar,@RequestParam String country) throws IOException {

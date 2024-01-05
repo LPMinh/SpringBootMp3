@@ -29,4 +29,7 @@ public class ArtistService {
     public List<Artist> search(String keyword) {
         return artistRepository.findTopByFullNameContainingIgnoreCase(keyword, 10);
     }
+    public List<Artist> getTopArtist(int limit){
+        return artistRepository.getTopArtist(limit);
+    }
 }

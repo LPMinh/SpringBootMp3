@@ -11,5 +11,10 @@ public interface ArtistRepository extends JpaRepository<Artist, Long> {
     @Query("select a from Artist a where a.fullName like %?1% ")
     public List<Artist> findTopByFullNameContainingIgnoreCase(String name,@Param("limit") int limit);
 
+    @Query("select a from Artist a order by a.id desc")
+    public List<Artist> getTopArtist(@Param("limit") int limit);
+
+
+
 
 }

@@ -63,4 +63,8 @@ public class AlbumService {
         albumRepository.delete(album);
         return true;
     }
+    public Album getAlbumNewestByArtistId(long Artisid){
+        return albumRepository.findTopAlbumByArtistId(Artisid,1);
+    }
+
 }

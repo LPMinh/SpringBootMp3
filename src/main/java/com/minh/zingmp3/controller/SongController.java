@@ -81,4 +81,9 @@ public class SongController {
         return Optional.of(songService.getSongsByAlbum_Id(id));
     }
 
+    @GetMapping("/artist/{id}/new")
+    public  ResponseEntity<?> getTopSongNew(@PathVariable("id") long id){
+        return ResponseEntity.ok(songService.getListSongNewByArtistId(id));
+    }
+
 }

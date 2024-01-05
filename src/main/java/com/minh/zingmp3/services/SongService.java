@@ -23,6 +23,9 @@ public class SongService {
     private AlbumService albumService;
     @Autowired
     private ArtistService artistService;
+    @Autowired
+    private SongArtistService songArtistService;
+
 
 
     public Page<Song> findAllSong(int pageNo,int pageSize,String sortBy,String sortDirection){
@@ -69,5 +72,9 @@ public class SongService {
 
     public List<Song> search(String keyword) {
         return songRepository.findTopSongByNameContainingIgnoreCase(keyword, 10);
+    }
+
+    public List<Song> getListSongNewByArtistId(long artistId){
+        return songArtistService.getSongNewByArtistId(artistId);
     }
 }
